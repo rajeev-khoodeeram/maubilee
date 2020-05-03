@@ -7,6 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -66,14 +67,11 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
+      
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+        
+        
+        
         child: Column(
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
@@ -91,21 +89,54 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+
+
+            Image(
+              image: AssetImage("assets/images/logo.png"),
+              fit: BoxFit.scaleDown,
+              width: MediaQuery.of(context).size.width * 0.8,
+              height: 100,
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
+            SizedBox(height: 150,),
+            Text("Who are you ?", style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: Colors.black38),),  
+            SizedBox(height: 50,),
+            ButtonTheme(
+              minWidth: MediaQuery.of(context).size.width * 0.6,
+              height: 50,
+              child: RaisedButton(
+                  color: Colors.red,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Text(
+                    "Business",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: () {}),
+            ),
+            SizedBox(height: 50,),
+            Text("OR", style: TextStyle(color: Colors.redAccent),),
+            SizedBox(height: 50,),
+            ButtonTheme(
+              minWidth: MediaQuery.of(context).size.width * 0.6,
+              height: 50,
+              child: RaisedButton(
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                  
+                      borderRadius: BorderRadius.circular(10)),
+
+                  child: Text(
+                    "Individual",
+                    style: TextStyle(
+                      color: Colors.red,
+                    ),
+                  ),
+                  onPressed: () {}),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
