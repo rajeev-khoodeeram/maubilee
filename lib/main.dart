@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:maubilee/business/RegisterBusiness.dart';
+import 'package:maubilee/individual/RegisterUser.dart';
+
+import 'business/RegisterBusiness.dart';
 
 void main() => runApp(MyApp());
 
@@ -7,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -60,6 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+     SystemChrome.setEnabledSystemUIOverlays([]);
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -67,7 +74,8 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      
+       
+      appBar: null,
       body: Center(
         
         
@@ -104,14 +112,20 @@ class _MyHomePageState extends State<MyHomePage> {
               minWidth: MediaQuery.of(context).size.width * 0.6,
               height: 50,
               child: RaisedButton(
-                  color: Colors.red,
+                  color: Colors.deepOrange,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                   child: Text(
                     "Business",
                     style: TextStyle(color: Colors.white),
                   ),
-                  onPressed: () {}),
+                  onPressed: () {
+
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => RegisterBusiness()),
+                  );
+                  }),
             ),
             SizedBox(height: 50,),
             Text("OR", style: TextStyle(color: Colors.redAccent),),
@@ -120,7 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
               minWidth: MediaQuery.of(context).size.width * 0.6,
               height: 50,
               child: RaisedButton(
-                  color: Colors.white,
+                  color: Color.fromRGBO(51, 187, 255, 1),
                   shape: RoundedRectangleBorder(
                   
                       borderRadius: BorderRadius.circular(10)),
@@ -128,10 +142,17 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Text(
                     "Individual",
                     style: TextStyle(
-                      color: Colors.red,
+                      color: Colors.white,
                     ),
                   ),
-                  onPressed: () {}),
+                  onPressed: () {
+
+  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => RegisterUser()),
+                  );
+
+                  }),
             ),
           ],
         ),
