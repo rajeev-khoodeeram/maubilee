@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:maubilee/business/HomeBusiness.dart';
 import 'package:maubilee/business/RegisterBusiness.dart';
+import 'package:maubilee/individual/HomeIndividual.dart';
 import 'package:maubilee/individual/RegisterUser.dart';
 
 import 'business/RegisterBusiness.dart';
@@ -12,7 +14,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -66,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-     SystemChrome.setEnabledSystemUIOverlays([]);
+    SystemChrome.setEnabledSystemUIOverlays([]);
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -74,12 +75,8 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-       
       appBar: null,
       body: Center(
-        
-        
-        
         child: Column(
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
@@ -97,17 +94,25 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-
-
             Image(
               image: AssetImage("assets/images/logo.png"),
               fit: BoxFit.scaleDown,
               width: MediaQuery.of(context).size.width * 0.8,
               height: 100,
             ),
-            SizedBox(height: 150,),
-            Text("Who are you ?", style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: Colors.black38),),  
-            SizedBox(height: 50,),
+            SizedBox(
+              height: 150,
+            ),
+            Text(
+              "Who are you ?",
+              style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black38),
+            ),
+            SizedBox(
+              height: 50,
+            ),
             ButtonTheme(
               minWidth: MediaQuery.of(context).size.width * 0.6,
               height: 50,
@@ -120,25 +125,30 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () {
-
                     Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => RegisterBusiness()),
-                  );
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => HomeBusiness()),
+                    );
                   }),
             ),
-            SizedBox(height: 50,),
-            Text("OR", style: TextStyle(color: Colors.redAccent),),
-            SizedBox(height: 50,),
+            SizedBox(
+              height: 50,
+            ),
+            Text(
+              "OR",
+              style: TextStyle(color: Colors.redAccent),
+            ),
+            SizedBox(
+              height: 50,
+            ),
             ButtonTheme(
               minWidth: MediaQuery.of(context).size.width * 0.6,
               height: 50,
               child: RaisedButton(
                   color: Color.fromRGBO(51, 187, 255, 1),
                   shape: RoundedRectangleBorder(
-                  
                       borderRadius: BorderRadius.circular(10)),
-
                   child: Text(
                     "Individual",
                     style: TextStyle(
@@ -146,12 +156,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                   onPressed: () {
-
-  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => RegisterUser()),
-                  );
-
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomeIndividual()),
+                    );
                   }),
             ),
           ],

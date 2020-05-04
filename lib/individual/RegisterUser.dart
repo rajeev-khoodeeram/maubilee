@@ -4,8 +4,14 @@ class RegisterUser extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text("User"),
-    );
+    return 
+    new Scaffold(
+      appBar: AppBar(centerTitle: true, title: Text("Individual"), backgroundColor: Colors.deepOrange,),
+      body: Container(
+      color: Colors.white,
+      child: Text("Individual!"),
+    ));
+    
+    
   }
 }
