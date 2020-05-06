@@ -7,25 +7,52 @@ class HomeBusiness extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      persistentFooterButtons: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Text("Powered by", style: TextStyle(fontSize: 20),),
+              Text(" "),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset("assets/images/logo.png", height: 50,),
+              ),
+
+          ],) 
+
+      ],
       appBar: AppBar(
-        title: Text("Welcome 'business name here'"),
+        title: Text("Welcome 'Courts Mauritius'"),
         centerTitle: true,
         backgroundColor: Colors.deepOrange,
       ),
-      body: Column(
-        children: <Widget>[
-          SizedBox(
-            height: 30,
+      body:  SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Text("Manage Ads >>", style: TextStyle(color:Colors.deepOrange),textAlign: TextAlign.start,),
+                  DetailsAds(),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Text("Stats >>", style: TextStyle(color:Colors.deepOrange),),
+                  DetailsAds(),
+            
+                
+
+                ],
+            ),
+              ),
           ),
-          Text("Manage Ads >>"),
-          DetailsAds(),
-          SizedBox(
-            height: 30,
-          ),
-          Text("Stats >>"),
-          DetailsAds(),
-        ],
-      ),
+    
+      
     );
   }
 }
@@ -49,7 +76,9 @@ class DetailsAds extends StatelessWidget {
       ], borderRadius: BorderRadius.circular(20)),
       height: 200,
       width: MediaQuery.of(context).size.width * 0.8,
-      child: Card(
+      child: 
+      
+      Card(
         elevation: 3,
       ),
     );
